@@ -2,31 +2,35 @@
 
 该项目基于原项目：https://github.com/fine-1/php-SER-libs 制作，为其添加了容器环境/
 
-用于验证的系统信息：
+关卡信息：
+
+| 序号 | 可行性验证 | 关卡信息 | 备注 |
+|:-----|:-----------|:---------|:-----|
+| level1 | × | 类的实例化 | - |
+| level2 | × | login | - |
+| level3 | × | relogin | - |
+| level4 | ✓ | create_fucntion与可变函数调用 | 5.6不支持可变函数，7.2已废除create_function |
+| level5 | ✓ | 序列化格式过滤与CVE-2016-7124 | CVE-2016-7124漏洞影响版本：PHP5 < 5.6.25，PHP7 < 7.0.10 |
+| level6 | ✓ | 私有属性反序列化 | escaped binary string(仅从php6开始支持) |
+| level7 | ✓ | __call与属性的初始值 | 同上 |
+| level8 | × | 反序列化增逃逸 | - |
+| level9 | × | ezpop | - |
+| level10 | ✓ | just_one_soap | 需要开启soap扩展(php5.6：extension=php_soap) |
+| level11 | ✓ | a phar | php.ini中phar.readonly=Off（若有分号则去掉） |
+| level12 | ✓ | a phar trick | 同上 |
+| level13 | ✓ | 引用和session | session.auto_start=0;<br/>session.serialize_handler = php;（level13均为默认设置） |
+| level14 | × | session.upload_progress | session.auto_start=0;<br/>session.serialize_handler = php_serialize;<br/>session.upload_progress.enabled = On;<br/>session.upload_progress.cleanup = Off;<br/>session.upload_progress.prefix = "upload_progress_";<br/>session.upload_progress.name = "PHP_SESSION_UPLOAD_PROGRESS";<br/>session.upload_progress.freq =  "1%";<br/>session.upload_progress.min_freq = "1"; |
+
+其他关卡未作可行性验证， 如有问题请提交issue。
+
+验证环境配置如下：
 
 ```
-@linuxcore 
-------------------- 
 OS: Debian GNU/Linux 12 (bookworm) x86_64 
 Kernel: 6.1.0-26-amd64 
 Shell: bash 5.2.15 
 CPU: AMD Ryzen 7 7840HS w/ Radeon 780M Graphics (16) @ 3.800GHz 
 ```
-
-下列关卡均做了可行性验证：
-
-| 关卡                                   | 不适用其他版本的原因以及相关设置                             |
-| :------------------------------------- | :----------------------------------------------------------- |
-| level4 create_fucntion与可变函数调用   | 5.6不支持可变函数，7.2已废除create_function                  |
-| level5 序列化格式过滤与CVE-2016-7124   | CVE-2016-7124漏洞影响版本：PHP5 < 5.6.25，PHP7 < 7.0.10      |
-| level6 私有属性反序列化                | escaped binary string(仅从php6开始支持)                      |
-| level7 __call与属性的初始值            | 同上                                                         |
-| level10 just_one_soap                  | 需要开启soap扩展(php5.6：extension=php_soap)                 |
-| level11 a phar 和 level12 a phar trick | php.ini中phar.readonly=Off（若有分号则去掉）                 |
-| level13 引用和session                  | session.auto_start=0;<br/>session.serialize_handler = php;（level13均为默认设置） |
-| leve14 session.upload_progress         | session.auto_start=0;<br/>session.serialize_handler = php_serialize;<br>session.upload_progress.enabled = On;<br>session.upload_progress.cleanup = Off;<br>session.upload_progress.prefix = "upload_progress_";<br>session.upload_progress.name = "PHP_SESSION_UPLOAD_PROGRESS";<br>session.upload_progress.freq =  "1%";<br>session.upload_progress.min_freq = "1"; |
-
-其他关卡未作可行性验证， 如有问题请提交issue。
 
 
 
@@ -415,3 +419,10 @@ test.html
 通过test.html“上传”任意文件，然后抓包，利用payload改包，最后发包，OK
 
 ![image-20220311065409439](/pic/image-20220311065409439.png)
+
+
+
+
+
+
+

@@ -1,0 +1,120 @@
+version: '3'
+
+services:
+  level1:
+    build: 
+      context: ./level1
+    ports:
+      - "8001:80"
+    volumes:
+      - ./level1:/var/www/html
+      - ./level1/logs:/var/log/nginx
+
+  level2:
+    build: 
+      context: ./level2
+    ports:
+      - "8002:80"
+    volumes:
+      - ./level2:/var/www/html
+      - ./level2/logs:/var/log/nginx
+
+  level3:
+    build: 
+      context: ./level3
+    ports:
+      - "8003:80"
+    volumes:
+      - ./level3:/var/www/html
+      - ./level3/logs:/var/log/nginx
+
+  level4:
+    build: 
+      context: ./level4
+    ports:
+      - "8004:80"
+    volumes:
+      - ./level4:/var/www/html
+      - ./level4/logs:/var/log/nginx
+
+  level5:
+    build: 
+      context: ./level5
+    ports:
+      - "8005:80"
+    volumes:
+      - ./level5:/var/www/html
+
+  level6:
+    build: 
+      context: ./level6
+    ports:
+      - "8006:80"
+    volumes:
+      - ./level6:/var/www/html
+
+  level7:
+    build: 
+      context: ./level7
+    ports:
+      - "8007:80"
+    volumes:
+      - ./level7:/var/www/html
+
+  level8:
+    build: 
+      context: ./level8
+    ports:
+      - "8008:80"
+    volumes:
+      - ./level8:/var/www/html
+
+  level9:
+    build: 
+      context: ./level9
+    ports:
+      - "8009:80"
+    volumes:
+      - ./level9:/var/www/html
+
+  level10:
+    build: 
+      context: ./level10
+    ports:
+      - "8010:80"
+    volumes:
+      - ./level10:/var/www/html
+
+  level11:
+    build: 
+      context: ./level11
+    ports:
+      - "8011:80"
+    volumes:
+      - ./level11:/var/www/html
+      - ./level11/logs:/var/log/nginx
+
+  level12:
+    build: 
+      context: ./level12
+    ports:
+      - "8012:80"
+    volumes:
+      - ./level12:/var/www/html
+      - ./level12/logs:/var/log/nginx
+
+  level13:
+    build: 
+      context: ./level13
+    ports:
+      - "8013:80"
+    volumes:
+      - ./level13:/var/www/html
+
+  level14:
+    build: 
+      context: ./level14
+    ports:
+      - "8014:80"
+    volumes:
+      - ./level14:/var/www/html
