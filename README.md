@@ -92,7 +92,7 @@ echo urlencode(serialize($a));
 
 url编码后，抓包修改发送即可。以下截图为重放攻击。
 
-![image-20220205105027434](/pic/image-20220205105027434.png)
+![image-20220205105027434](./pic/image-20220205105027434.png)
 
 
 
@@ -177,7 +177,7 @@ echo serialize($pa),"\n";
 ?>
 ```
 
-![image-20220208202613945](/pic/image-20220208202613945.png)
+![image-20220208202613945](./pic/image-20220208202613945.png)
 
 **level7 __call与属性的初始值**
 
@@ -255,7 +255,7 @@ if ($profile->pass=='escaping'){
 O:4:"test":2:{s:4:"user";s:116:"phpphpphpphpphpphpphpphpphpphpphpphpphpphpphpphpphpphpphpphpphpphpphpphpphpphpphpphpphp";s:4:"pass";s:8:"escaping";}";s:4:"pass";s:8:"daydream";}
 ```
 
-![image-20220212192454775](/pic/image-20220212192454775.png)
+![image-20220212192454775](./pic/image-20220212192454775.png)
 
 **leve9 ezpop**
 
@@ -312,7 +312,7 @@ echo urlencode(serialize($b));
 
 soap数据包测试方法：将loaction更改为监听ip和端口即可（注意：该包是index.php”发出“的）。
 
-下图实例（公网ip测试）：![image-20220217103937584](/pic/image-20220217103937584.png)
+下图实例（公网ip测试）：![image-20220217103937584](./pic/image-20220217103937584.png)
 
 ```php
 <?php
@@ -343,11 +343,11 @@ $phar->stopBuffering();
 ?>
 ```
 
-![image-20220221092905715](/pic/image-20220221092905715.png)
+![image-20220221092905715](./pic/image-20220221092905715.png)
 
 **level12 a phar trick** 
 
-![image-20220221100925190](/pic/image-20220221100925190.png)
+![image-20220221100925190](./pic/image-20220221100925190.png)
 
 **level13 引用和session** 
 
@@ -418,7 +418,7 @@ test.html
 
 通过test.html“上传”任意文件，然后抓包，利用payload改包，最后发包，OK
 
-![image-20220311065409439](/pic/image-20220311065409439.png)
+![image-20220311065409439](./pic/image-20220311065409439.png)
 
 
 
