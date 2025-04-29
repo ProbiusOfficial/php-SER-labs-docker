@@ -4,22 +4,22 @@
 
 关卡信息：
 
-| 序号 | 可行性验证 | 关卡信息 | 备注 |
-|:-----|:-----------|:---------|:-----|
-| level1 | × | 类的实例化 | - |
-| level2 | × | login | - |
-| level3 | × | relogin | - |
-| level4 | ✓ | create_fucntion与可变函数调用 | 5.6不支持可变函数，7.2已废除create_function |
-| level5 | ✓ | 序列化格式过滤与CVE-2016-7124 | CVE-2016-7124漏洞影响版本：PHP5 < 5.6.25，PHP7 < 7.0.10 |
-| level6 | ✓ | 私有属性反序列化 | escaped binary string(仅从php6开始支持) |
-| level7 | ✓ | __call与属性的初始值 | 同上 |
-| level8 | × | 反序列化增逃逸 | - |
-| level9 | × | ezpop | - |
-| level10 | ✓ | just_one_soap | 需要开启soap扩展(php5.6：extension=php_soap) |
-| level11 | ✓ | a phar | php.ini中phar.readonly=Off（若有分号则去掉） |
-| level12 | ✓ | a phar trick | 同上 |
-| level13 | ✓ | 引用和session | session.auto_start=0;<br/>session.serialize_handler = php;（level13均为默认设置） |
-| level14 | × | session.upload_progress | session.auto_start=0;<br/>session.serialize_handler = php_serialize;<br/>session.upload_progress.enabled = On;<br/>session.upload_progress.cleanup = Off;<br/>session.upload_progress.prefix = "upload_progress_";<br/>session.upload_progress.name = "PHP_SESSION_UPLOAD_PROGRESS";<br/>session.upload_progress.freq =  "1%";<br/>session.upload_progress.min_freq = "1"; |
+| 序号 | 可行性验证 | 关卡信息 | 镜像版本 | 备注 |
+|:-----|:-----------|:---------|:---------|:-----|
+| level1 | × | 类的实例化 | php:7.3-fpm-alpine | - |
+| level2 | × | login | php:7.3-fpm-alpine | - |
+| level3 | × | relogin | php:7.3-fpm-alpine | - |
+| level4 | ✓ | create_fucntion与可变函数调用 | php:7.0-fpm-alpine | 5.6不支持可变函数，7.2已废除create_function |
+| level5 | ✓ | 序列化格式过滤与CVE-2016-7124 | php:7.0.8-apache | CVE-2016-7124漏洞影响版本：PHP5 < 5.6.25，PHP7 < 7.0.10 |
+| level6 | ✓ | 私有属性反序列化 | php:7.0.8-apache | escaped binary string(仅从php6开始支持) |
+| level7 | ✓ | __call与属性的初始值 | php:7.0.8-apache | 同上 |
+| level8 | × | 反序列化增逃逸 | php:7.0.8-apache | - |
+| level9 | × | ezpop | php:7.0.8-apache | - |
+| level10 | ✓ | just_one_soap | php:5.6-apache | 需要开启soap扩展(php5.6：extension=php_soap) |
+| level11 | ✓ | a phar | php:7.3-fpm-alpine | php.ini中phar.readonly=Off（若有分号则去掉） |
+| level12 | ✓ | a phar trick | php:7.3-fpm-alpine | 同上 |
+| level13 | ✓ | 引用和session | php:7.0.8-apache | session.auto_start=0;<br/>session.serialize_handler = php;（level13均为默认设置） |
+| level14 | × | session.upload_progress | php:7.0.8-apache |session.auto_start=0;<br/>session.serialize_handler = php_serialize;<br/>session.upload_progress.enabled = On;<br/>session.upload_progress.cleanup = Off;<br/>session.upload_progress.prefix = "upload_progress_";<br/>session.upload_progress.name = "PHP_SESSION_UPLOAD_PROGRESS";<br/>session.upload_progress.freq =  "1%";<br/>session.upload_progress.min_freq = "1";|
 
 其他关卡未作可行性验证， 如有问题请提交issue。
 
