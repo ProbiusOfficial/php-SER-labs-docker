@@ -18,9 +18,11 @@ COPY ./config/php.ini /usr/local/etc/php/conf.d
 # 复制web项目源码
 COPY *.php /var/www/html/
 
-# 重新设置源码路径的用户所有权
-RUN chown -R www-data:www-data /var/www/html
- 
+# 创建上传目录并设置权限
+RUN mkdir -p /var/www/html/upload && \
+    chown -R www-data:www-data /var/www/html && \
+    chmod -R 755 /var/www/html
+
 # 设置shell的工作目录
 WORKDIR /var/www/html
 
